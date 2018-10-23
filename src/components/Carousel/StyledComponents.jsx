@@ -29,7 +29,7 @@ export const CarouselDiv = styled.div`
 `;
 
 export const CarouselBackground = styled.div`
-    background-image: url("https://i.vimeocdn.com/video/595198868_505x160.jpg");
+    background-image: ${props => `url(${props.imageUrl})`};
     
     /* Add the blur effect */
     filter: blur(8px);

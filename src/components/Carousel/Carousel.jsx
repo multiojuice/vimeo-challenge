@@ -38,7 +38,7 @@ class Carousel extends Component {
         const {items, index} = this.state;
         return (
             <div>
-                <CarouselBackground />
+                <CarouselBackground imageUrl={this.props.items[index].imageUrl} />
                 <CarouselDiv>
                     <Arrow onClick={this.changeIndex} name="decrement">{`<`}</Arrow>
                     {items[index]}
