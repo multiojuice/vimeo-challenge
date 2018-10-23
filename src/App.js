@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import ColoredSection from './components/ColoredSection';
+import Carousel from './components/Carousel';
+import {
+  Header,
+  Button
+} from './StyledComponents';
 
 export const ORIENTATION_CONSTANTS = {
   RIGHT: 'right',
@@ -34,11 +39,38 @@ const bottomData = [
 ];
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCarousel: false
+    }
+  }
+
+  toggleCarousel = () => {
+    const { showCarousel } = this.state;
+    this.setState({showCarousel: !showCarousel})
+  }
+
   render() {
+    const { showCarousel } = this.state;
+
     return (
       <div>
-          <ColoredSection data={headerData} color1="white" color2="white" />
-          <ColoredSection data={bottomData} color1="black" color2="white" />
+        <Header>
+          <Button onClick={this.toggleCarousel}>
+            Click here to see the other part of coding challenge!
+          </Button>
+        </Header>
+        { showCarousel ?
+          (
+            <Carousel items={bottomData}/>
+          ) : (
+            <div>
+                <ColoredSection data={headerData} color1="white" color2="white" />
+                <ColoredSection data={bottomData} color1="black" color2="white" />
+            </div>
+          )
+        }
       </div>
     );
   }
