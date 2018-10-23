@@ -12,6 +12,8 @@ export const ORIENTATION_CONSTANTS = {
   LEFT: 'left'
 }
 
+const ACCESS_TOKEN = '0c9de60ed26319d172042037ae22195e';
+
 const headerData = [
   {
     imageUrl: 'https://i.vimeocdn.com/video/595198868_505x160.jpg',
@@ -47,13 +49,30 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch(`https://api.vimeo.com/videos?query=vimeo&per_page=4`, 
+    { headers: { Authorization: 'Bearer ' + ACCESS_TOKEN } })
+    .then(response => response.json())
+    .then(data => { 
+      const content = data.data.map((item) => {
+        return {
+          imageUrl: item.pictures.sizes.slice(-1).pop().link,
+          title: item.name,
+          description: item.description
+        }
+      })
+      console.warn('Vimeo', content); this.setState({ content })});
+  }
+
   toggleCarousel = () => {
     const { showCarousel } = this.state;
     this.setState({showCarousel: !showCarousel})
   }
 
   render() {
-    const { showCarousel } = this.state;
+    const { showCarousel, content } = this.state;
+
+    if(!content) return <div style={{'fontSize': '60px', 'textAlign': 'center'}}>Awaiting Vimeo API Data (hooked up to the second section)</div>
 
     return (
       <div style={{width: '100%', height: '100%'}}>
@@ -65,7 +84,7 @@ class App extends Component {
         { showCarousel ?
           (
             <FullPage>
-              <Carousel items={bottomData}/>
+              <Carousel items={this.state.content}/>
             </FullPage>
           ) : (
             <div>

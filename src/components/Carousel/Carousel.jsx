@@ -27,7 +27,8 @@ class Carousel extends Component {
 
     changeIndex = (event) => {
         const {index, items} = this.state;
-        if (event.target.name === 'increment') {
+        console.log(event.target.id)
+        if (event.target.id === 'increment') {
             this.setState({index: (index + 1 >= items.length ? 0 : index + 1)});
         } else {
             this.setState({index: (index - 1 < 0 ? items.length - 1 : index - 1)});
@@ -40,9 +41,9 @@ class Carousel extends Component {
             <div>
                 <CarouselBackground imageUrl={this.props.items[index].imageUrl} />
                 <CarouselDiv>
-                    <Arrow onClick={this.changeIndex} name="decrement">{`<`}</Arrow>
+                    <Arrow onClick={this.changeIndex} id="decrement">{`<`}</Arrow>
                     {items[index]}
-                    <Arrow onClick={this.changeIndex} name="increment">{`>`}</Arrow>
+                    <Arrow onClick={this.changeIndex} id="increment">{`>`}</Arrow>
                 </CarouselDiv>
             </div>
         );
