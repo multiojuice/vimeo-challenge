@@ -3,7 +3,8 @@ import ColoredSection from './components/ColoredSection';
 import Carousel from './components/Carousel';
 import {
   Header,
-  Button
+  Button,
+  FullPage
 } from './StyledComponents';
 
 export const ORIENTATION_CONSTANTS = {
@@ -55,15 +56,17 @@ class App extends Component {
     const { showCarousel } = this.state;
 
     return (
-      <div>
-        <Header>
+      <div style={{width: '100%', height: '100%'}}>
+      <Header>
           <Button onClick={this.toggleCarousel}>
             Click here to see the other part of coding challenge!
           </Button>
         </Header>
         { showCarousel ?
           (
-            <Carousel items={bottomData}/>
+            <FullPage>
+              <Carousel items={bottomData}/>
+            </FullPage>
           ) : (
             <div>
                 <ColoredSection data={headerData} color1="white" color2="white" />

@@ -16,8 +16,10 @@ const CarouselItem = ({imageUrl, title, description}) => {
             <InformationContainer>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
-                <BuyNowButton>Buy Now</BuyNowButton>
-                <WatchTrailerButton>Watch Trailer</WatchTrailerButton>
+                <Wrapper>
+                    <BuyNowButton>Buy Now</BuyNowButton>
+                    <WatchTrailerButton>Watch Trailer</WatchTrailerButton>
+                </Wrapper>
             </InformationContainer>
         </Wrapper>
     )

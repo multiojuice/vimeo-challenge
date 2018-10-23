@@ -13,3 +13,11 @@ export const Button = styled.button`
     cursor: pointer;
     background-color: white;
 `;
+
+export const FullPage = styled.div`
+    background: navy;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
