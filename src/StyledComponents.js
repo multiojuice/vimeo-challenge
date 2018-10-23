@@ -17,7 +17,7 @@ export const Button = styled.button`
 export const FullPage = styled.div`
     background: navy;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: white;
 `;
