@@ -4,17 +4,31 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     max-width: 900px;
+    @media (max-width: 1100px) {
+        max-width: 80%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 export const ThumbnailImg = styled.img`
     height: 400px;
     width: 300px;
+    @media (max-width: 700px) {
+        height: 80%;
+        width: 60%
+    }
 `;
 
 export const InformationContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 20px 40px;
+    @media (max-width: 700px) {
+        margin: auto;
+        align-items: center;
+    }
 `;
 
 export const Title = styled.div`
@@ -28,6 +42,10 @@ export const Description = styled.div`
     margin: 15px 0;
     color: grey;
     font-size: 22px;
+    @media (max-width: 700px) {
+        width: auto;
+        word-break: break-all;
+    }
 `;
 
 export const BuyNowButton = styled.button`

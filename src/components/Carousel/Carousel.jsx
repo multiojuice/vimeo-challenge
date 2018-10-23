@@ -36,13 +36,12 @@ class Carousel extends Component {
     render() {
         const {items, index} = this.state;
         return (
-            <div>
-                <CarouselDiv>
-                    <Arrow onClick={this.changeIndex} name="decrement">{`<`}</Arrow>
-                    {items[index]}
-                    <Arrow onClick={this.changeIndex} name="increment">{`>`}</Arrow>
-                </CarouselDiv>
-            </div>
+            
+            <CarouselDiv>
+                <Arrow onClick={this.changeIndex} name="decrement">{`<`}</Arrow>
+                {items[index]}
+                <Arrow onClick={this.changeIndex} name="increment">{`>`}</Arrow>
+            </CarouselDiv>
         );
     }
 }
