@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Arrow,
-    CarouselDiv
+    CarouselDiv,
 } from './StyledComponents';
 import CarouselItem from '../CarouselItem';
 
@@ -36,11 +36,13 @@ class Carousel extends Component {
     render() {
         const {items, index} = this.state;
         return (
-            <CarouselDiv>
-                <Arrow onClick={this.changeIndex} name="increment"/>
-                {items[index]}
-                <Arrow onClick={this.changeIndex} name="decrement"/>
-            </CarouselDiv>
+            <div>
+                <CarouselDiv>
+                    <Arrow onClick={this.changeIndex} name="decrement">{`<`}</Arrow>
+                    {items[index]}
+                    <Arrow onClick={this.changeIndex} name="increment">{`>`}</Arrow>
+                </CarouselDiv>
+            </div>
         );
     }
 }

@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
-export const Arrow = styled.button`
-    margin: 60px 20px;
+export const Arrow = styled.div`
+    margin: 100px 20px;
+    font-weight: 900;
+    cursor: pointer;
+    color: white;
+    font-size: 96px;
+    :hover {
+        color: lightblue;
+    }
 `;
 
 export const CarouselDiv = styled.div`
